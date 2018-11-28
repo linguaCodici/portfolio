@@ -11,6 +11,7 @@ import { ContactComponent } from './content/contact/contact.component';
 import { ProjectItemComponent } from './content/projects/project-item/project-item.component';
 
 import { ContactService } from './_service/contact.service';
+import { NavService } from './_service/nav.service';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -28,7 +29,7 @@ import { HttpModule } from '@angular/http';
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [ContactService],
+  providers: [ContactService, NavService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
