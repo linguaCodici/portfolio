@@ -1,0 +1,16 @@
+#project-item {
+  background: rgba(255, 255, 255, 0.719);
+  margin-bottom: 1em;
+  padding: 0.5em;
+  #project-title {
+    margin-top: 1.5em;
+    a, a:hover {
+      font-style: none;
+      border-radius: 0%;
+    }
+  }
+  
+  #project-content {
+    margin-top: 1em;
+  }
+}

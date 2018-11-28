@@ -1,0 +1,19 @@
+<div id="project-item" class="col-sm-12 col-md-12 shadow">
+  <div id="project-title" class="row pl-2">
+    <div class="col-sm-12 mb-2">
+      <a 
+      [attr.href]="isDisabled(item.link) ? null : item.link" 
+      class="badge badge-light p-1" 
+      target="_blank" 
+      [class.disabled]="isDisabled(item.link)"><h4>{{ item.name }}</h4></a>
+    </div>
+  </div>
+  <div id="project-content" class="row pl-2">
+    <div class="col-sm-12" *ngFor="let image of item.images">
+       <img [src]="image" alt=""> 
+    </div>
+    <div class="col-sm-12" *ngFor="let desc of item.description">
+      <p class="lead">{{desc}}</p>
+    </div>
+  </div>
+</div>
