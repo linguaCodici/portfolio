@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Project } from './project.model';
 
 @Component({
@@ -6,8 +6,9 @@ import { Project } from './project.model';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.scss']
 })
-export class ProjectsComponent implements OnInit {
+export class ProjectsComponent implements OnInit, AfterViewInit {
   projects: Project[];
+  pos: number;
 
   constructor() { }
 
@@ -50,6 +51,10 @@ export class ProjectsComponent implements OnInit {
         ['A visualization of graph data structure outputted to terminal after applying reinforcement learning algorithm. C++ (Graphviz)']
       ),
     ];
+  }
+
+  ngAfterViewInit() {
+    this.pos = document.getElementById('projects').offsetTop;
   }
 
 }

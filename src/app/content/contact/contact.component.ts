@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ContactService } from 'src/app/_service/contact.service';
 
@@ -7,8 +7,9 @@ import { ContactService } from 'src/app/_service/contact.service';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
-export class ContactComponent implements OnInit {
+export class ContactComponent implements OnInit, AfterViewInit {
   contactForm: FormGroup;
+  pos: number;
 
   constructor(private contactService: ContactService) { }
 
@@ -33,4 +34,7 @@ export class ContactComponent implements OnInit {
     confirm('Your message is on its way!');
   }
 
+  ngAfterViewInit() {
+    this.pos = document.getElementById('contact').offsetTop;
+  }
 }
