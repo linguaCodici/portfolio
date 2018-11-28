@@ -5,7 +5,7 @@
         <span class="w-100 d-lg-none d-block">
           <!-- hidden spacer to center brand on mobile --></span>
         <a id="home-button" class="navbar-brand d-none d-lg-inline-block pl-4" 
-          style="cursor: default;" [routerLink]="[ '/home' ]" fragment="top">
+          style="cursor: pointer;" (click)="navigateTo('Top')">
           Xiaoxiao Pang
         </a>
         <div class="w-100 text-right">
@@ -18,13 +18,13 @@
         <ul class="navbar-nav ml-auto flex-nowrap">
           <!-- <li class="nav-item"> -->
           <li class="nav-item" [ngClass]="{'active':activeComponent==='About'}">
-            <a class="nav-link m-2 menu-item active disabled" style="cursor: default;" (click)="navigateTo('About')">About</a>
+            <a class="nav-link m-2 menu-item active disabled" style="cursor: pointer;" (click)="navigateTo('About')">About</a>
           </li>
           <li class="nav-item" [ngClass]="{'active':activeComponent==='Projects'}">
-            <a class="nav-link m-2 menu-item active disabled" style="cursor: default;" (click)="navigateTo('Projects')">Projects</a>
+            <a class="nav-link m-2 menu-item active" style="cursor: pointer;" (click)="navigateTo('Projects')">Projects</a>
           </li>
           <li class="nav-item" [ngClass]="{'active':activeComponent==='Contact'}">
-            <a class="nav-link m-2 menu-item active disabled" style="cursor: default;" (click)="navigateTo('Contact')">Contact</a>
+            <a class="nav-link m-2 menu-item active disabled" style="cursor: pointer;" (click)="navigateTo('Contact')">Contact</a>
           </li>
         </ul>
       </div>

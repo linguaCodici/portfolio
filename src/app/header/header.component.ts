@@ -33,5 +33,12 @@ export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
 
   navigateTo(component: string) {
     this.router.navigate(['/home'], {fragment: component});
+    if (component === 'Projects') {
+      window.scrollTo(0, 436);
+    } else if (component === 'Contact') {
+      window.scrollTo(0, 1665);
+    } else {
+      window.scrollTo(0, 0);
+    }
   }
 }
