@@ -13,6 +13,7 @@ import { ProjectItemComponent } from './content/projects/project-item/project-it
 import { ContactService } from './_service/contact.service';
 import { NavService } from './_service/nav.service';
 import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [ContactService, NavService],
   bootstrap: [AppComponent]

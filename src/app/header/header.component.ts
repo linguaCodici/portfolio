@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, OnDestroy } from '@angular/core';
 import { NavService } from '../_service/nav.service';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
   activeComponent: String;
   private subscription: Subscription;
 
-  constructor(private navService: NavService) { }
+  constructor(private navService: NavService, private router: Router) { }
 
   ngOnInit() {
     this.activeComponent = 'About';
@@ -28,5 +29,9 @@ export class HeaderComponent implements OnInit, OnChanges, OnDestroy {
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  navigateTo(component: string) {
+    this.router.navigate(['/home'], {fragment: component});
   }
 }

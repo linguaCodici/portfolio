@@ -1,15 +1,17 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit, AfterViewInit } from '@angular/core';
 import { NavService } from './_service/nav.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'portfolio';
+  private fragment: string;
 
-  constructor(private navService: NavService) {}
+  constructor(private navService: NavService, private route: ActivatedRoute) {}
 
   @HostListener('window:scroll', ['$event'])
   doSomething(event) {
@@ -21,5 +23,15 @@ export class AppComponent {
     } else {
       this.navService.changeActiveComponent('Contact');
     }
+  }
+
+  ngOnInit(): void {
+    this.route.fragment.subscribe(fragment => { this.fragment = fragment; });
+  }
+
+  ngAfterViewInit(): void {
+    try {
+      document.querySelector('#' + this.fragment).scrollIntoView();
+    } catch (e) { }
   }
 }
