@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -8,7 +9,9 @@ import { AboutComponent } from './content/about/about.component';
 import { ProjectsComponent } from './content/projects/projects.component';
 import { ContactComponent } from './content/contact/contact.component';
 import { ProjectItemComponent } from './content/projects/project-item/project-item.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { ContactService } from './_service/contact.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -22,9 +25,10 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [ContactService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
